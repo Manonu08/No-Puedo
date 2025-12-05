@@ -36,7 +36,7 @@
     position: relative;
     z-index: 20;
     height: 200vh; 
-    padding-top: 150vh;
+    padding-top: 100vh;
 }
 
 #links-footer {
@@ -63,5 +63,6 @@
     font-size: 0.7em;
     margin-top: 10px;
 }
+
 
 
