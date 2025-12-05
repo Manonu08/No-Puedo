@@ -43,7 +43,7 @@
     width: 100%;
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -64,3 +64,4 @@
     font-size: 0.7em;
     margin-top: 10px;
 }
+
