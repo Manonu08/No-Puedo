@@ -4,22 +4,18 @@
     box-sizing: border-box;
 }
 
-/* Forzamos el comportamiento del cuerpo de la web */
 #web-body {
     background-color: #000;
     color: #fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* Reducimos la altura mínima para que el scroll inicie más limpio */
     min-height: 150vh; 
     position: relative;
-    /* Ocultamos cualquier contenido que desborde verticalmente */
     overflow-x: hidden; 
 }
 
 #tower-section {
     position: relative;
     width: 100%;
-    /* Altura que siempre será igual a la pantalla visible */
     height: 100vh; 
     display: flex;
     justify-content: center;
@@ -30,14 +26,13 @@
 
 #tower-image {
     width: 100%;
-    /* Hacemos la imagen un poco más alta que la pantalla para que el movimiento se sienta más natural */
     height: 110%; 
     object-fit: cover;
     transition: none;
 }
 
 #scroll-space {
-    height: 50vh; /* Reducido para que el footer aparezca antes */
+    height: 50vh;
 }
 
 #links-footer {
@@ -69,3 +64,4 @@
     font-size: 0.7em;
     margin-top: 10px;
 }
+
