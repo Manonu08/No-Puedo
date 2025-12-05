@@ -4,6 +4,8 @@ document.addEventListener('scroll', function() {
     const towerImage = document.getElementById('tower-image');
     
     if (towerImage) {
+
         towerImage.style.transform = `translateY(${-scrollPosition * 0.4}px)`; 
     }
+    
 });
