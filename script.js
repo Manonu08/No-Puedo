@@ -7,5 +7,4 @@ document.addEventListener('scroll', function() {
 
         towerImage.style.transform = `translateY(${-scrollPosition * 0.4}px)`; 
     }
-    
 });
