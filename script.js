@@ -5,7 +5,8 @@ document.addEventListener('scroll', function() {
     const footer = document.getElementById('links-footer');
     
     if (towerImage) {
-        towerImage.style.transform = `translateY(${-scrollPosition * 0.5}px)`;
+        // Aumentamos la velocidad de movimiento a * 1 (misma velocidad que el scroll)
+        towerImage.style.transform = `translateY(${-scrollPosition * 1}px)`; 
     }
 
     if (footer) {
