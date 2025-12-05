@@ -10,12 +10,11 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     min-height: 200vh;
     position: relative;
+    padding-top: 50vh;
 }
 
 #tower-section {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -29,17 +28,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
+    transition: none;
 }
 
 #scroll-space {
-    height: 200vh;
+    height: 100vh;
 }
 
 #links-footer {
-    position: absolute;
-    bottom: 50vh;
+    position: relative;
+    bottom: auto;
     left: 0;
     width: 100%;
     text-align: center;
