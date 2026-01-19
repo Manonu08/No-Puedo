@@ -42,19 +42,17 @@
             display: block;
         }
 
-        /* El contenedor negro siempre está ahí para permitir el scroll */
         .footer-container {
             background-color: black;
             width: 100%;
-            padding: 100px 0;
-            min-height: 300px;
+            /* Eliminamos el espacio superior para que esté al inicio de la zona negra */
+            padding: 10px 0 80px 0; 
         }
 
-        /* Solo el contenido es el que hace Fade In/Out */
         .fade-content {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
             text-align: center;
         }
 
@@ -65,7 +63,7 @@
 
         .social-icons {
             font-size: 3rem;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .social-icons a {
@@ -85,17 +83,17 @@
     <div class="footer-container">
         <div id="fade-target" class="fade-content">
             <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
-                <p style="color: white; font-size: 1.2rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
-                    "La Torre. Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina."
+                <p style="color: white; font-size: 1.1rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
+                    "La TORRE". Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina.
                 </p>
                 
                 <div class="social-icons">
-                    <a href="https://open.spotify.com" target="_blank"><i class="fab fa-spotify"></i></a>
-                    <a href="https://music.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://music.apple.com" target="_blank"><i class="fab fa-apple"></i></a>
+                    <a href="https://open.spotify.com/intl-es/album/2cFgHgTnoRo2pGGF7XtsNk" target="_blank"><i class="fab fa-spotify"></i></a>
+                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_mE-_rcPuh-QSZMqQn2CnVtYEI6ALA390Y&si=rc2VGt2MoHS_E1vv" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://music.apple.com/es/album/la-torre/1865266466" target="_blank"><i class="fab fa-apple"></i></a>
                 </div>
                 
-                <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 MANUEL BAINOTTI</p>
+                <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 Manuel Bainotti</p>
             </div>
         </div>
     </div>
@@ -107,17 +105,14 @@
             const rect = fadeTarget.getBoundingClientRect();
             const viewHeight = window.innerHeight;
 
-
-            if (rect.top < viewHeight - 50) {
+            if (rect.top < viewHeight - 5) {
                 fadeTarget.classList.add('visible');
             } else {
-                
                 fadeTarget.classList.remove('visible');
             }
         }
 
         window.addEventListener('scroll', handleScroll);
-        
         window.addEventListener('load', handleScroll);
     </script>
 </body>
