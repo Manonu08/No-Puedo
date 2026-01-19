@@ -6,24 +6,35 @@
     <title>La Torre - Manuel Bainotti</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body style="background-color: black; margin: 0; padding: 0; overflow-y: auto !important;">
 
     <div style="width: 100%; position: relative; background: black; display: flex; flex-direction: column; align-items: center;">
-        
         <div style="position: absolute; top: 3%; width: 100%; z-index: 999; text-align: center; pointer-events: none;">
             <span style="color: rgba(255,255,255,0.75); font-family: 'Times New Roman', serif; font-size: 22px !important; letter-spacing: 10px; font-weight: normal; text-shadow: 0 0 12px rgba(0,0,0,1); padding-left: 10px;">
                 XVI
             </span>
         </div>
-        
         <div style="line-height: 0; width: 100%;">
             <img src="Torre.jpg" alt="La Torre" style="width: 100%; height: auto; display: block;">
         </div>
     </div>
     
-    <div style="background-color: black; width: 100%; padding: 60px 0;">
-        <footer id="links-footer" style="text-align: center;">
+    <div style="background-color: black; width: 100%; padding: 80px 0;">
+        <footer id="links-footer" class="reveal" style="text-align: center;">
             
             <div style="margin-bottom: 50px; padding: 0 30px;">
                 <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6; font-style: italic; max-width: 600px; margin: 0 auto; opacity: 0.85;">
@@ -32,7 +43,7 @@
             </div>
 
             <div style="font-size: 2.8rem; margin-bottom: 40px;">
-                <a href="https://open.spotify.com/intl-es/album/202618" target="_blank" style="color: white; margin: 0 20px; text-decoration: none;"><i class="fab fa-spotify"></i></a>
+                <a href="https://open.spotify.com/intl-es/album/35v0W5yV8uR8YpWn0w0X8V" target="_blank" style="color: white; margin: 0 20px; text-decoration: none;"><i class="fab fa-spotify"></i></a>
                 <a href="https://music.youtube.com/playlist?list=OLAK5uy_mE-_rcPuh-QSZMqQn2CnVtYEI6ALA390Y" target="_blank" style="color: white; margin: 0 20px; text-decoration: none;"><i class="fab fa-youtube"></i></a>
                 <a href="https://music.apple.com/es/album/la-torre/1865266466" target="_blank" style="color: white; margin: 0 20px; text-decoration: none;"><i class="fab fa-apple"></i></a>
             </div>
@@ -41,6 +52,16 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            var revealElement = document.querySelector('.reveal');
+            var position = revealElement.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+
+            if (position < windowHeight - 100) {
+                revealElement.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
