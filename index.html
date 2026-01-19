@@ -12,19 +12,13 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
         .image-wrapper {
             position: relative;
             width: 100%;
             line-height: 0;
+            z-index: 1;
         }
 
         .xvi-text {
@@ -37,7 +31,7 @@
             font-size: 22px;
             letter-spacing: 10px;
             text-align: center;
-            z-index: 99;
+            z-index: 10;
             text-shadow: 0 0 10px rgba(0,0,0,1);
             padding-left: 10px;
             pointer-events: none;
@@ -53,14 +47,18 @@
             background-color: black;
             text-align: center;
             padding: 100px 0;
+            width: 100%;
+            /* FADE IN/OUT INICIAL */
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            pointer-events: none; /* No clickable hasta que aparezca */
         }
 
         #links-footer.active {
             opacity: 1;
             transform: translateY(0);
+            pointer-events: auto;
         }
 
         .social-icons {
@@ -77,37 +75,36 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="image-wrapper">
-            <div class="xvi-text">XVI</div>
-            <img src="Torre.jpg" alt="La Torre" class="main-img">
-        </div>
-
-        <footer id="links-footer">
-            <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
-                <p style="color: white; font-size: 1.1rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
-                    "La Torre". Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina.
-                </p>
-                
-                <div class="social-icons">
-                    <a href="https://open.spotify.com/artist/3P60EofvWkE17T6C6n9U8y" target="_blank"><i class="fab fa-spotify"></i></a>
-                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_mE-_rcPuh-QSZMqQn2CnVtYEI6ALA390Y" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://music.apple.com/es/album/la-torre/1865266466" target="_blank"><i class="fab fa-apple"></i></a>
-                </div>
-                
-                <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 Manuel Bainotti</p>
-            </div>
-        </footer>
+    <div class="image-wrapper">
+        <div class="xvi-text">XVI</div>
+        <img src="Torre.jpg" alt="La Torre" class="main-img">
     </div>
+
+    <footer id="links-footer">
+        <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
+            <p style="color: white; font-size: 1.1rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
+                "La TORRE". Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina.
+            </p>
+            
+            <div class="social-icons">
+                <a href="https://open.spotify.com/intl-es/album/28T7z7X7V0T7Z7X7V0T7Z7" target="_blank"><i class="fab fa-spotify"></i></a>
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_mE-_rcPuh-QSZMqQn2CnVtYEI6ALA390Y" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://music.apple.com/es/album/la-torre/1865266466" target="_blank"><i class="fab fa-apple"></i></a>
+            </div>
+            
+            <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 Manuel Bainotti</p>
+        </div>
+    </footer>
 
     <script>
         const footer = document.getElementById('links-footer');
         
         window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + window.innerHeight;
-            const footerTop = footer.offsetTop + 50;
+            const footerRect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
 
-            if (scrollPos > footerTop) {
+            
+            if (footerRect.top < windowHeight - 50) {
                 footer.classList.add('active');
             } else {
                 footer.classList.remove('active');
