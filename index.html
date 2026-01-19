@@ -18,7 +18,6 @@
             position: relative;
             width: 100%;
             line-height: 0;
-            z-index: 1;
         }
 
         .xvi-text {
@@ -43,22 +42,25 @@
             display: block;
         }
 
-        #links-footer {
+        /* El contenedor negro siempre está ahí para permitir el scroll */
+        .footer-container {
             background-color: black;
-            text-align: center;
-            padding: 100px 0;
             width: 100%;
-            /* FADE IN/OUT INICIAL */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-            pointer-events: none; /* No clickable hasta que aparezca */
+            padding: 100px 0;
+            min-height: 300px;
         }
 
-        #links-footer.active {
+        /* Solo el contenido es el que hace Fade In/Out */
+        .fade-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+            text-align: center;
+        }
+
+        .fade-content.visible {
             opacity: 1;
             transform: translateY(0);
-            pointer-events: auto;
         }
 
         .social-icons {
@@ -80,36 +82,43 @@
         <img src="Torre.jpg" alt="La Torre" class="main-img">
     </div>
 
-    <footer id="links-footer">
-        <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
-            <p style="color: white; font-size: 1.1rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
-                "La TORRE". Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina.
-            </p>
-            
-            <div class="social-icons">
-                <a href="https://open.spotify.com/intl-es/album/28T7z7X7V0T7Z7X7V0T7Z7" target="_blank"><i class="fab fa-spotify"></i></a>
-                <a href="https://music.youtube.com/playlist?list=OLAK5uy_mE-_rcPuh-QSZMqQn2CnVtYEI6ALA390Y" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://music.apple.com/es/album/la-torre/1865266466" target="_blank"><i class="fab fa-apple"></i></a>
+    <div class="footer-container">
+        <div id="fade-target" class="fade-content">
+            <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
+                <p style="color: white; font-size: 1.2rem; font-style: italic; line-height: 1.6; opacity: 0.9;">
+                    "La Torre. Un disco de emociones, un cementerio de ellas. Ambient Experimental, Indie Rock y Folk. Argentina."
+                </p>
+                
+                <div class="social-icons">
+                    <a href="https://open.spotify.com" target="_blank"><i class="fab fa-spotify"></i></a>
+                    <a href="https://music.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://music.apple.com" target="_blank"><i class="fab fa-apple"></i></a>
+                </div>
+                
+                <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 MANUEL BAINOTTI</p>
             </div>
-            
-            <p style="opacity: 0.3; color: white; font-size: 0.7rem; letter-spacing: 2px;">© 2026 Manuel Bainotti</p>
         </div>
-    </footer>
+    </div>
 
     <script>
-        const footer = document.getElementById('links-footer');
+        const fadeTarget = document.getElementById('fade-target');
         
-        window.addEventListener('scroll', () => {
-            const footerRect = footer.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+        function handleScroll() {
+            const rect = fadeTarget.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
 
-            
-            if (footerRect.top < windowHeight - 50) {
-                footer.classList.add('active');
+
+            if (rect.top < viewHeight - 50) {
+                fadeTarget.classList.add('visible');
             } else {
-                footer.classList.remove('active');
+                
+                fadeTarget.classList.remove('visible');
             }
-        });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        
+        window.addEventListener('load', handleScroll);
     </script>
 </body>
 </html>
